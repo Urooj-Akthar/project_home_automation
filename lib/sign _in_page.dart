@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_home_automation/footer_page.dart';
 import 'package:project_home_automation/home_page.dart';
 import 'package:project_home_automation/living_room.dart';
 
@@ -150,8 +151,10 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomePage_foter()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orange,

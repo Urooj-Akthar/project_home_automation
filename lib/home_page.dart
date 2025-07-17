@@ -1,12 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_home_automation/alert_page.dart';
-import 'package:project_home_automation/dining_room.dart';
-import 'package:project_home_automation/living_room.dart';
-import 'package:project_home_automation/master_bed_room.dart';
-import 'package:project_home_automation/report_page.dart';
-import 'package:project_home_automation/setting.dart';
-import 'package:project_home_automation/watch_page.dart';
-import 'package:project_home_automation/watching_room.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,8 +6,6 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-
-int index = -1;
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -31,8 +21,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Setting()));
+              // Navigator.push(
+              //     context, MaterialPageRoute(builder: (context) => Setting()));
             },
             icon: Icon(
               Icons.settings,
@@ -42,282 +32,221 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 500,
-            width: 450,
-            child: Column(
-              children: [
-                Container(
-                  height: 40,
-                  width: 450,
-                  child: Row(
+      body: Center(
+        child: Column(
+          children: [
+            Container(
+              height: 500,
+              width: 450,
+              child: Column(
+                children: [
+                  Container(
+                    height: 40,
+                    width: 450,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text("Familly Memmers"),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey,
+                          radius: 15,
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 400,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFF8D0A9),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                            spreadRadius: 1,
+                            blurRadius: 1,
+                            offset: Offset(0, 1),
+                            color: Colors.black45)
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "My Location",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "Trincomalle",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          "32 C",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text("Familly Memmers"),
-                      CircleAvatar(
-                        backgroundColor: Colors.grey,
-                        radius: 15,
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 100,
-                  width: 400,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF8D0A9),
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                          spreadRadius: 1,
-                          blurRadius: 1,
-                          offset: Offset(0, 1),
-                          color: Colors.black45)
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "My Location",
+                      GestureDetector(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => LivingRoom()));
+                        },
+                        child: Container(
+                          height: 160,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFE1E1DA),
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                  spreadRadius: 1,
+                                  blurRadius: 1,
+                                  offset: Offset(0, 1),
+                                  color: Colors.black45)
+                            ],
+                          ),
+                          child: Center(
+                              child: Text(
+                            "Living Room",
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
                               fontWeight: FontWeight.bold,
+                              fontSize: 18,
                             ),
-                          ),
-                          Text(
-                            "Trincomalle",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                            ),
-                          ),
-                        ],
+                          )),
+                        ),
                       ),
-                      Text(
-                        "32 C",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => MasterBedRoom()));
+                        },
+                        child: Container(
+                          height: 160,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFE1E1DA),
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                  spreadRadius: 1,
+                                  blurRadius: 1,
+                                  offset: Offset(0, 1),
+                                  color: Colors.black45)
+                            ],
+                          ),
+                          child: Center(
+                              child: Text(
+                            "Master Room",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          )),
                         ),
                       ),
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LivingRoom()));
-                      },
-                      child: Container(
-                        height: 160,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFE1E1DA),
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: [
-                            BoxShadow(
-                                spreadRadius: 1,
-                                blurRadius: 1,
-                                offset: Offset(0, 1),
-                                color: Colors.black45)
-                          ],
-                        ),
-                        child: Center(
-                            child: Text(
-                          "Living Room",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => WatchingRoom()));
+                        },
+                        child: Container(
+                          height: 160,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFE1E1DA),
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                  spreadRadius: 1,
+                                  blurRadius: 1,
+                                  offset: Offset(0, 1),
+                                  color: Colors.black45)
+                            ],
                           ),
-                        )),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MasterBedRoom()));
-                      },
-                      child: Container(
-                        height: 160,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFE1E1DA),
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: [
-                            BoxShadow(
-                                spreadRadius: 1,
-                                blurRadius: 1,
-                                offset: Offset(0, 1),
-                                color: Colors.black45)
-                          ],
+                          child: Center(
+                              child: Text(
+                            "Watch Room",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          )),
                         ),
-                        child: Center(
-                            child: Text(
-                          "Master Room",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        )),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => WatchingRoom()));
-                      },
-                      child: Container(
-                        height: 160,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFE1E1DA),
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: [
-                            BoxShadow(
-                                spreadRadius: 1,
-                                blurRadius: 1,
-                                offset: Offset(0, 1),
-                                color: Colors.black45)
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => DiningRoom()));
+                        },
+                        child: Container(
+                          height: 160,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFE1E1DA),
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                  spreadRadius: 1,
+                                  blurRadius: 1,
+                                  offset: Offset(0, 1),
+                                  color: Colors.black45)
+                            ],
+                          ),
+                          child: Center(
+                              child: Text(
+                            "Dinning Room",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          )),
                         ),
-                        child: Center(
-                            child: Text(
-                          "Watch Room",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        )),
                       ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DiningRoom()));
-                      },
-                      child: Container(
-                        height: 160,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFE1E1DA),
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: [
-                            BoxShadow(
-                                spreadRadius: 1,
-                                blurRadius: 1,
-                                offset: Offset(0, 1),
-                                color: Colors.black45)
-                          ],
-                        ),
-                        child: Center(
-                            child: Text(
-                          "Dinning Room",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        )),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    index = 0;
-                  });
-                },
-                icon: Icon(
-                  Icons.home,
-                  color: index == 0 ? Colors.orange : Colors.black54,
-                  size: 65,
-                ),
-              ),
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => WatchPage()));
-                    setState(() {
-                      index = 2;
-                    });
-                    index = 1;
-                  });
-                },
-                icon: Icon(
-                  Icons.video_camera_back,
-                  color: index == 1 ? Colors.orange : Colors.black54,
-                  size: 65,
-                ),
-              ),
-              IconButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AlertPage()));
-                },
-                icon: Icon(
-                  Icons.notification_add_sharp,
-                  color: index == 2 ? Colors.orange : Colors.black54,
-                  size: 65,
-                ),
-              ),
-              IconButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ReportPage()));
-
-                  setState(() {
-                    index = 2;
-                  });
-                  setState(() {
-                    index = 3;
-                  });
-                },
-                icon: Icon(
-                  Icons.my_library_books,
-                  color: index == 3 ? Colors.orange : Colors.black54,
-                  size: 65,
-                ),
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

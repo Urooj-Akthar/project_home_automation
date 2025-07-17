@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_home_automation/home_page.dart';
+import 'package:project_home_automation/footer_page.dart';
 import 'package:project_home_automation/sign%20_in_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -111,8 +111,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomePage_foter()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orange,

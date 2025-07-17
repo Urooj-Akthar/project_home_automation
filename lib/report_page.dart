@@ -7,8 +7,6 @@ class ReportPage extends StatefulWidget {
   State<ReportPage> createState() => _ReportPageState();
 }
 
-int index = -1;
-
 class _ReportPageState extends State<ReportPage> {
   @override
   Widget build(BuildContext context) {
@@ -285,59 +283,6 @@ class _ReportPageState extends State<ReportPage> {
                   ],
                 ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      index = 0;
-                    });
-                  },
-                  icon: Icon(
-                    Icons.home,
-                    color: index == 0 ? Colors.orange : Colors.black54,
-                    size: 65,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      index = 1;
-                    });
-                  },
-                  icon: Icon(
-                    Icons.video_camera_back,
-                    color: index == 1 ? Colors.orange : Colors.black54,
-                    size: 65,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      index = 2;
-                    });
-                  },
-                  icon: Icon(
-                    Icons.notification_add_sharp,
-                    color: index == 2 ? Colors.orange : Colors.black54,
-                    size: 65,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      index = 3;
-                    });
-                  },
-                  icon: Icon(
-                    Icons.my_library_books,
-                    color: index == 3 ? Colors.orange : Colors.black54,
-                    size: 65,
-                  ),
-                ),
-              ],
             ),
           ],
         ),
