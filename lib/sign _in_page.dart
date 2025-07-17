@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project_home_automation/footer_page.dart';
-import 'package:project_home_automation/home_page.dart';
 import 'package:project_home_automation/living_room.dart';
 
 class SignInPage extends StatefulWidget {
