@@ -41,7 +41,7 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
           Container(
-            height: 550,
+            height: 500,
             width: 400,
             decoration: BoxDecoration(
               color: Color(0xFFFFE587),
