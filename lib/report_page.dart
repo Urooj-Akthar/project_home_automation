@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_home_automation/setting.dart';
 
 class ReportPage extends StatefulWidget {
   const ReportPage({super.key});
@@ -20,7 +21,10 @@ class _ReportPageState extends State<ReportPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Setting()));
+            },
             icon: Icon(
               Icons.settings,
               color: Colors.black54,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_home_automation/setting.dart';
 
 class AlertPage extends StatefulWidget {
   const AlertPage({super.key});
@@ -20,7 +21,10 @@ class _AlertPageState extends State<AlertPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Setting()));
+            },
             icon: Icon(
               Icons.settings,
               color: Colors.black54,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_home_automation/setting.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,8 +22,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              // Navigator.push(
-              //     context, MaterialPageRoute(builder: (context) => Setting()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Setting()));
             },
             icon: Icon(
               Icons.settings,

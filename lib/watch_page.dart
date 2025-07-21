@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_home_automation/setting.dart';
 
 class WatchPage extends StatefulWidget {
   const WatchPage({super.key});
@@ -20,7 +21,10 @@ class _WatchPageState extends State<WatchPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Setting()));
+            },
             icon: Icon(
               Icons.settings,
               color: Colors.black54,
