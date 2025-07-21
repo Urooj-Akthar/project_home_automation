@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:project_home_automation/dining_room.dart';
+import 'package:project_home_automation/living_room.dart';
+import 'package:project_home_automation/master_bed_room.dart';
 import 'package:project_home_automation/setting.dart';
+import 'package:project_home_automation/watching_room.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -111,10 +115,10 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => LivingRoom()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LivingRoom()));
                         },
                         child: Container(
                           height: 160,
@@ -142,10 +146,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => MasterBedRoom()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MasterBedRoom()));
                         },
                         child: Container(
                           height: 160,
@@ -181,10 +185,10 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => WatchingRoom()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => WatchingRoom()));
                         },
                         child: Container(
                           height: 160,
@@ -212,10 +216,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => DiningRoom()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DiningRoom()));
                         },
                         child: Container(
                           height: 160,
