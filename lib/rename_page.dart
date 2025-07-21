@@ -26,7 +26,7 @@ class _RenamePageState extends State<RenamePage> {
         ),
       ),
       body: Center(
-        child: Container(
+        child: SizedBox(
           height: 550,
           width: 400,
           child: Column(

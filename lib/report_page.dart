@@ -45,7 +45,7 @@ class _ReportPageState extends State<ReportPage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 200,
                 width: 450,
                 child: SingleChildScrollView(
@@ -172,7 +172,7 @@ class _ReportPageState extends State<ReportPage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 200,
                 width: 450,
                 child: SingleChildScrollView(

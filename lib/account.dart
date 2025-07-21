@@ -35,7 +35,7 @@ class _AccountState extends State<Account> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               height: 500,
               width: 400,
               child: Column(

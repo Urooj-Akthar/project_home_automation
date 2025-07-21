@@ -40,12 +40,12 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: 500,
               width: 450,
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     height: 40,
                     width: 450,
                     child: Row(

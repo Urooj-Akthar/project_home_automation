@@ -38,7 +38,7 @@ class _AlertPageState extends State<AlertPage> {
           padding: const EdgeInsets.all(25.0),
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: 550,
                 width: 450,
                 child: SingleChildScrollView(

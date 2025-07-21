@@ -26,7 +26,7 @@ class _ChangePasswordState extends State<ChangePassword> {
         ),
       ),
       body: Center(
-        child: Container(
+        child: SizedBox(
           height: 550,
           width: 400,
           child: Column(

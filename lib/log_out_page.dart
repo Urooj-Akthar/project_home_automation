@@ -26,7 +26,7 @@ class _LogOutPageState extends State<LogOutPage> {
         ),
       ),
       body: Center(
-        child: Container(
+        child: SizedBox(
           height: 400,
           width: 400,
           child: Column(
