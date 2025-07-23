@@ -1,6 +1,9 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:project_home_automation/footer_page.dart';
 import 'package:project_home_automation/sign%20_in_page.dart';
+// import 'package:project_home_automation/sign_in_page.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,6 +13,70 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _signIn(BuildContext context) async {
+    setState(() => _isLoading = true);
+
+    const url =
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDhqB07u6Z0bz3DJA4pJkEmHpu9a_EEmMU";
+
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({
+          'email': _emailController.text.trim(),
+          'password': _passwordController.text,
+          'returnSecureToken': true,
+        }),
+      );
+
+      final responseData = json.decode(response.body);
+
+      if (response.statusCode == 200) {
+        // Successful login
+        if (!mounted) return;
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage_foter()),
+        );
+      } else {
+        // Handle error
+        final errorMessage =
+            responseData['error']['message'] ?? 'Invalid login details';
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(errorMessage),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('An error occurred. Please try again.'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,10 +103,11 @@ class _LoginPageState extends State<LoginPage> {
               borderRadius: BorderRadius.circular(50),
               boxShadow: [
                 BoxShadow(
-                    spreadRadius: 2,
-                    blurRadius: 2,
-                    offset: Offset(0, 2),
-                    color: Colors.black87)
+                  spreadRadius: 2,
+                  blurRadius: 2,
+                  offset: Offset(0, 2),
+                  color: Colors.black87,
+                )
               ],
             ),
             child: Padding(
@@ -64,6 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     child: TextField(
+                      controller: _emailController,
                       decoration: InputDecoration(
                         hintText: "example@gmail.com",
                         labelText: "Enter Your Email",
@@ -76,6 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                       ),
+                      keyboardType: TextInputType.emailAddress,
                     ),
                   ),
                   Container(
@@ -92,8 +162,10 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     child: TextField(
+                      controller: _passwordController,
+                      obscureText: true,
                       decoration: InputDecoration(
-                        hintText: "At least 12 chareactor",
+                        hintText: "At least 12 characters",
                         labelText: "Enter Your Password",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
@@ -106,16 +178,9 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomePage_foter()));
-                    },
+                    onPressed: _isLoading ? null : () => _signIn(context),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orange,
                       foregroundColor: Colors.black87,
@@ -125,26 +190,22 @@ class _LoginPageState extends State<LoginPage> {
                       elevation: 6,
                       shadowColor: Colors.black,
                     ),
-                    child: Text(
-                      "Sign In",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    child: _isLoading
+                        ? CircularProgressIndicator(color: Colors.white)
+                        : Text(
+                            "Sign In",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
+                  SizedBox(height: 15),
                   Text(
                     "- Or Sign in With -",
-                    style: TextStyle(
-                      fontSize: 17,
-                    ),
+                    style: TextStyle(fontSize: 17),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
+                  SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -158,10 +219,11 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
-                                  spreadRadius: 2,
-                                  blurRadius: 2,
-                                  offset: Offset(0, 2),
-                                  color: Colors.black54)
+                                spreadRadius: 2,
+                                blurRadius: 2,
+                                offset: Offset(0, 2),
+                                color: Colors.black54,
+                              )
                             ],
                           ),
                           child: Icon(
@@ -181,10 +243,11 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
-                                  spreadRadius: 2,
-                                  blurRadius: 2,
-                                  offset: Offset(0, 2),
-                                  color: Colors.black54)
+                                spreadRadius: 2,
+                                blurRadius: 2,
+                                offset: Offset(0, 2),
+                                color: Colors.black54,
+                              )
                             ],
                           ),
                           child: Icon(
@@ -204,10 +267,11 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
-                                  spreadRadius: 2,
-                                  blurRadius: 2,
-                                  offset: Offset(0, 2),
-                                  color: Colors.black54)
+                                spreadRadius: 2,
+                                blurRadius: 2,
+                                offset: Offset(0, 2),
+                                color: Colors.black54,
+                              )
                             ],
                           ),
                           child: Icon(
@@ -219,32 +283,24 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
+                  SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Don't have an account ?",
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
+                      Text("Don't have an account?"),
                       TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignInPage()));
-                          },
-                          child: Text(
-                            "Sign Up",
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 15,
-                            ),
-                          ))
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignInPage()),
+                          );
+                        },
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                      )
                     ],
                   ),
                 ],
